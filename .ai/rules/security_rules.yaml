@@ -1,0 +1,74 @@
+# Spring Boot 보안 규칙
+security_rules:
+  version: "1.0"
+  
+  # Spring Security
+  spring_security:
+    use_method_security: true
+    enable_csrf: false  # API 는 비활성화
+    enable_session: false  # REST API
+    
+  # 인증/권한
+  authentication:
+    required_for_all_protected: true
+    token_type: "Bearer"
+    token_expiry: "24h"
+    jwt_header: "Authorization"
+    
+  authorization:
+    role_based: true
+    use @PreAuthorize: true
+    default_role: "USER"
+    
+  # 입력 검증
+  input_validation:
+    @Valid: true
+    @NotBlank: true
+    @NotNull: true
+    @Size: true
+    sql_injection_prevention: true
+    xss_prevention: true
+    
+  # 데이터 보호
+  data_protection:
+    hide_internal_errors: true
+    mask_sensitive_data: true
+    sensitive_fields:
+      - "password"
+      - "ssn"
+      - "credit_card"
+    use_jackson: true
+    
+  # 암호화
+  encryption:
+    password_hashing: "BCrypt"
+    min_password_length: 8
+    https_only: true
+    use_spring_encryption: true
+    
+  # CORS
+  cors:
+    enabled: true
+    allow_origins:
+      - "https://allowed-domain.com"
+    allow_methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+    allow_headers:
+      - "Authorization"
+      - "Content-Type"
+      
+  # Rate Limiting
+  rate_limiting:
+    enabled: true
+    use_spring_retry: true
+    requests_per_minute: 60
+    requests_per_hour: 1000
+    
+  # 로깅
+  logging:
+    log_security_events: true
+    log_auth_attempts: true
+    use_mdc: true  # Thread ID 추적

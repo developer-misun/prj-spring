@@ -1,0 +1,65 @@
+# Spring Boot 코딩 컨벤션 규칙
+coding_rules:
+  version: "1.0"
+  
+  # 언어 및 프레임워크
+  language: "java"
+  framework: "spring-boot"
+  java_version: "17"
+  spring_boot_version: "3.2.0"
+  
+  # 코드 스타일
+  style:
+    line_length: 120
+    indent_size: 4
+    use_braces: "always"
+    max_method_length: 60  # 줄
+    max_class_length: 400    # 줄
+    package_visibility: "private"  # 기본 접근권
+    
+  # 주석 규칙
+  comments:
+    javadoc_required: true
+    javadoc_style: "standard"
+    comment_ratio: 0.15  # 코드 대비 15% 주석
+    
+  # 네이밍 (Spring 의스타일 가이드)
+  naming:
+    classes: "PascalCase"
+    methods: "camelCase"
+    variables: "camelCase"
+    constants: "UPPER_SNAKE_CASE"
+    packages: "lowercase"
+    annotations: "required"
+    
+  # 에러 핸들링
+  error_handling:
+    use_controller_advisor: true
+    custom_exceptions: true
+    log_errors: true
+    global_exception_handler: true
+    
+  # 로깅
+  logging:
+    use_slf4j: true
+    logger_instance: true
+    log_levels: ["INFO", "ERROR", "WARN"]
+    
+  # 의존성 Injection
+  dependency_injection:
+    use_constructor: true  # @Autowired 대체
+    prefer_interface: true
+    
+  # 금지 패턴
+  forbidden_patterns:
+    - "@Autowired on field"
+    - "new.*Service"
+    - "Thread.sleep"
+    - "System.out.println"
+    
+  # 필수 패턴
+  required_patterns:
+    - "@Service"
+    - "@RestController"
+    - "@Entity"
+    - "Logger logger = LoggerFactory.getLogger"

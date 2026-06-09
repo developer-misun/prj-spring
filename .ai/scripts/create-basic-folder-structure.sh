@@ -12,9 +12,7 @@ mkdir -p src/main/resources
 mkdir -p src/test/java/com/example/yourapp
 mkdir -p src/test/resources
 mkdir -p .ai/docs/project
-mkdir -p .ai/docs/naming
-mkdir -p .ai/docs/api-design
-mkdir -p .ai/docs/api-tests
+mkdir -p .ai/rules
 mkdir -p .ai/scripts
 
 # 기본 설정 파일 생성

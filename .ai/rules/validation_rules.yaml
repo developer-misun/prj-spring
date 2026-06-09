@@ -1,0 +1,41 @@
+# 검증 규칙
+validation_rules:
+  version: "1.0"
+  
+  # 코드 검증
+  code_validation:
+    syntax_check: true
+    type_check: true
+    lint_check: true
+    security_scan: true
+    
+  # 규칙 준수 검증
+  rule_compliance:
+    check_coding_rules: true
+    check_api_rules: true
+    check_security_rules: true
+    check_naming_rules: true
+    
+  # 테스트
+  test_validation:
+    run_all_tests: true
+    minimum_coverage: 0.8
+    fail_on_failure: true
+    
+  # 성능
+  performance:
+    max_response_time: 1.0  # 초
+    check_n_plus_one: true
+      
+  # 문서화
+  documentation:
+    openapi_required: true
+    docstring_required: true
+    
+  # 합격 기준
+  pass_criteria:
+    syntax_errors: 0
+    lint_warnings: 0
+    security_vulnerabilities: 0
+    test_failures: 0
+    rule_violations: 0

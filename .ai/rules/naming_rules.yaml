@@ -1,0 +1,53 @@
+# 네이밍 규칙
+naming_rules:
+  version: "1.0"
+  
+  # 파일 이름
+  files:
+    snake_case: true
+    descriptive: true
+    
+  # 클래스
+  classes:
+    style: "PascalCase"
+    prefix: ""
+    suffix: ""
+    forbidden:
+      - "Manager"
+      - "Handler"  # 구체적 이름 사용 권장
+    
+  # 함수/메서드
+  functions:
+    style: "snake_case"
+    verb_required: true
+    descriptive: true
+    
+  # 변수
+  variables:
+    style: "snake_case"
+    meaningful_names: true
+    forbidden:
+      - "data"
+      - "temp"
+      - "obj"
+      
+  # 상수
+  constants:
+    style: "UPPER_SNAKE_CASE"
+    
+  # API 엔드포인트
+  endpoints:
+    style: "kebab-case"
+    lowercase: true
+    resource_based: true
+    
+  # 예시
+  examples:
+    valid_function_names:
+      - "get_user_by_id"
+      - "create_new_user"
+      - "update_user_profile"
+    invalid_function_names:
+      - "getUser"
+      - "getData"
+      - "test"

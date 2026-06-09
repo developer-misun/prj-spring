@@ -1,0 +1,32 @@
+# Spring Boot 패턴 규칙
+spring_patterns:
+  version: "1.0"
+  
+  # 패키지 구조
+  packages:
+    base: "com.example.app"
+    controller: ".controller"
+    service: ".service"
+    repository: ".repository"
+    entity: ".entity"
+    dto: ".dto"
+    common: ".common"
+    
+  # 생성될 소스 위치 (src/main/java 기준)
+  source_locations:
+    controller: "src/main/java/com/example/app/controller/"
+    service: "src/main/java/com/example/app/service/"
+    repository: "src/main/java/com/example/app/repository/"
+    entity: "src/main/java/com/example/app/entity/"
+    dto: "src/main/java/com/example/app/dto/"
+    
+  # 공통 클래스들
+  common_classes:
+    - name: "ApiResponse.java"
+      location: "src/main/java/com/example/app/common/response/"
+    - name: "BusinessException.java"
+      location: "src/main/java/com/example/app/common/exception/"
+    - name: "GlobalExceptionHandler.java"
+      location: "src/main/java/com/example/app/common/exception/"
+    - name: "SecurityConfig.java"
+      location: "src/main/java/com/example/app/common/config/"
